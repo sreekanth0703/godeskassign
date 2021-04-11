@@ -1,0 +1,33 @@
+
+<div class="container" style="padding-top:2%;">
+  <div class="row" [hidden]="todo_show">
+    <div class="col-md-2"></div>
+    <div class="col-md-7">
+      <textarea class="form-control" name="todo" rows="1" cols="80" placeholder="Take a note..." (focus)="todo_focus(true)"></textarea>
+    </div>
+  </div>
+  <div class="row" [hidden]="!todo_show">
+    <div class="col-md-2"></div>
+    <div class="col-md-7 card"  tabindex="-1">
+      <!-- <a (click)="close()" style="text-align: right">X</a> -->
+      <div class="card-body">
+        <input type="text" class="form-control" name="title" [(ngModel)]="title" placeholder="Title" style="border: none;" autocomplete="off">
+        <input type="hidden" name="id" [(ngModel)]="id">
+        <hr>
+        <textarea class="form-control" name="description" [(ngModel)]="description" rows="5" cols="80" placeholder="Take a note..." style="border: none;" autocomplete="off"></textarea>
+      </div>
+      <a (click)="close()" style="text-align: right;padding-bottom: 1%;cursor: pointer;">Close</a>
+    </div>
+  </div>
+  <div class="row" style="padding-top:2%;">
+    <div class="col-md-3" *ngFor="let item of todo_list">
+      <div class="card" style="width: 18rem;" (click)="todo_edit(item);">
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text"  style="padding: 10%;">{{item.description}}</p>
+          <a (click)="todo_delete(item.id)" class="btn btn-primary">Delete Note</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
