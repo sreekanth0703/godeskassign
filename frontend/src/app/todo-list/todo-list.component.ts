@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfigService} from '../config.service';
+import {HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-todo-list',
@@ -34,7 +35,13 @@ export class TodoListComponent implements OnInit {
     this.todo_show = selected;
   }
 
+
+
   todo_edit(item: any): void{
+    let targetElement = (event.target as HTMLElement).tagName;
+    if (targetElement ==="A") {
+      return;
+    }
     this.id = item.id;
     this.title = item.title;
     this.description = item.description;
