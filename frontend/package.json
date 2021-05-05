@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/router": "~11.2.9",
     "bootstrap": "^5.0.0-beta3",
+    "bootstrap-select": "^1.13.18",
     "jquery": "^3.6.0",
     "ng-form-group": "^1.4.2",
     "ngx-bootstrap": "^6.2.0",
